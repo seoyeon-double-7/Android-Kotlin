@@ -30,11 +30,22 @@ fun main(args: Array<String>) {
     var name = "John"
     println(name.length)
 
-    var name2 : String? = "sally"
+    var name2 : String? = null
 //    println(name2.length)
     
 //    스마트 캐스트 -> String?에서 스트링 타입으로 변환해준다
-    if(name2 != null){
-        println(name2.length)
-    }
+//    if(name2 != null){
+//        println(name2.length)
+//    }
+    
+//    안전한 접근 연산자(safe call operator)
+//    null이면 null을 리턴한다.
+    
+//    null을 찾음
+    println(name2?.length)
+
+//    !!. => null 값이 아님을 보장하는 연산자
+//    강제로 non-nullable 타입으로 형변환
+//    그 과정에서 문제가 생기면 NullPointerExecption이 발생
+    println(name2!!.length)
 }
