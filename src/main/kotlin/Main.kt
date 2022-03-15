@@ -5,6 +5,11 @@ fun main(args: Array<String>) {
     var a: Int = 100
     var s = "Hello"
 
-//   상수(val)
+//  상수(val)
     val PI = 3.14
+    
+//  문자열 템플릿
+    var score = 100
+    var t = "My score is ${score}"
+    println(t)
 }
