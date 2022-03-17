@@ -27,8 +27,8 @@ fun main(args: Array<String>) {
     var b2 : Int? = 100
     b2 = null
 
-    var name = "John"
-    println(name.length)
+//    var name = "John"
+//    println(name.length)
 
     var name2 : String? = null
 //    println(name2.length)
@@ -42,16 +42,20 @@ fun main(args: Array<String>) {
 //    null이면 null을 리턴한다.
     
 //    null을 찾음
-    println(name2?.length)
+//    println(name2?.length)
 
 //    !!. => null 값이 아님을 보장하는 연산자
 //    강제로 non-nullable 타입으로 형변환
 //    그 과정에서 문제가 생기면 NullPointerExeception이 발생
-//    println(name2!!.length)
+//    println(name2!!.length),
 
 //    엘비스 연산자
 //    왼쪽 값이 null이면 오른쪽 값을 대입
 //    왼쪽 값이 null이 아니면 왼쪽 값을 대입(default)
     var c1 = null ?: 1
     var c2 = 2 ?: 1
+
+    var arg : String? = "김미림"
+    var n = arg?: "무명씨"
+
 }
