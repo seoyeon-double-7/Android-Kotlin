@@ -1,3 +1,17 @@
+//Unit은 void 역할을 한다. 생략가능
+fun printHello(): Unit{
+    println("HEllo")
+}
+
+fun sum(a: Int, b: Int): Int{
+    return a + b
+}
+
+// 함수 정의할 때 대입문 쓰려면 대입문 오른쪽이 반드시 표현식
+// 그리고 이 경우에만 모든 대입 생략 가능
+fun sum2(a: Int, b: Int) = a+b
+
+fun getBigger(a: Int, b: Int) = if(a<b) a else b
 fun main(args: Array<String>) {
 //    배열, 크기를 정하지 않아도 arrayOf() 함수를 사용해서 값을 저장한다
 //    배열에 다른 타입 값을 넣어도 자동 형변환(타입추론)을 해준다
@@ -22,12 +36,13 @@ fun main(args: Array<String>) {
     }
 //    for (i in 1 .. 10) {}  <= 자동생성
 //    range 객체생성
-//    var range = 5 .. 10
-
+    var range = 5 .. 10
+//    until은 5, 6, 7, 8, 9 (맨 마지막 x)
+    var range2 = 5 until 10
 //    반복을 위해 사용되는 in 연산자
-//    for(i in 5 .. 10){
-//        println(i)
-//    }
+    for(i in 5 .. 10){
+        println(i)
+    }
 
 //    var score = 100
 //    값이 없는 변수는 타입을 선언해야한다
@@ -41,10 +56,13 @@ fun main(args: Array<String>) {
 //    }
 //    println(grade)
 
-    var score = 90
+//    코틀린에서 표현식으로 쓰이는 if문
+//    else 문을 꼭 써줘야 됨!
+    var score = 100
     var grade = if(score == 100){
         println("잘했습니다.")
-        "A"
+        "A".toLowerCase()
+        "A+"
     }else if(score >= 90) {
         println("적당함.")
         "B"
@@ -52,4 +70,30 @@ fun main(args: Array<String>) {
         "F"
     }
     println(grade)
+
+    var num1 =100
+    var num2 =200
+    
+//    삼항 연산자의 역할을 하고 있다
+    var bigger = if(num1>num2) num1 else num2
+    println(bigger)
+
+    var num = 1
+    when(num){
+        1 -> println("One")
+        2 -> println("Two")
+        else -> println("Not one")
+    }
+
+    var a = 10.0
+    var b = 20.0
+    var op = "+"
+    var result = when(op){
+        "+" -> a + b
+        "-" -> a - b
+        "*" -> a * b
+        "/" -> a / b
+        else -> null
+    }
+    println(result)
 }
