@@ -1,3 +1,8 @@
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
+import javax.swing.JButton
+
+
 /*
 class 클래스이름(주 생성자 내용){
     //메서드 정의
@@ -37,9 +42,10 @@ class Hello(var a: String) {
 }
 
 class MyClass {
-    //    lateinit => 초기화를 늦게 한다는 뜻 (생성자 호출 후)
+    //lateinit => 초기화를 늦게 한다는 뜻 (생성자 호출 후)
 //    lateinit => s 값이 접근하기 전에 반드시 "초기화"가 되어있다고
 //    프로그래머가 약속을 해준 것이므로 nullable 타입이 아닐 수 있음
+//    lateinit => 중괄호 안에 변수 선언할때 값을 안넣어주고 싶을 때 사용
     lateinit var s: String
 
     fun initString(str: String) {
@@ -51,14 +57,14 @@ class MyClass {
 //상속
 //OPEN을 써야 상속이 됨
 open class Person2(var name: String, var age: Int) {
-    //    반환값이 없으므로 unit이 생략됨
+//      반환값이 없으므로 unit이 생략됨
 //        오버라이드를 가능하게 하려면 open을 붙여줘야함
     open fun eat(food: String): Unit {
         println("${name}이 ${food}를 먹습니다.")
     }
 
     fun sleep(hour: Int) {
-        println("${name}이 ${hour} 시간동안 잡니다.")
+        println("${name}이 ${hour} 시간동안 자고 있습니다.")
     }
 }
 
@@ -164,6 +170,24 @@ fun main(args: Array<String>) {
         override fun abstractMethod(): Int {
             return 100
         }
+    }
 
+//    swing import 꼭 하기
+    var btn = JButton("Button")
+
+//    ActionListener는 인터페이스
+//    추상메소드가 1개 있고, 이를 함수형 인터페이스(SAM)라고 부름
+    btn.addActionListener(object: ActionListener{
+        override fun actionPerformed(e: ActionEvent?) {
+            println("clicked!")
+        }
+    })
+//    코드 줄이기
+    btn.addActionListener {
+        e-> println("clicked!")
+    }
+//    코드 완전 줄임
+    btn.addActionListener {
+        println("clicked! ${it}")
     }
 }
